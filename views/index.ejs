@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/styles/main.css">
+    <title>New-Project</title>
+</head>
+<body>
+<div class="container">
+<div class="box1"  id="heading">
+    <h1><%= new Date().toLocaleString('default', { month: 'long' }) +" " +new Date().getDate() %></h1>
+</div>
+<div class="box">
+    <%  newListItems.forEach(element => { %>   
+    <form action="/delete" method="post">
+    <div class="item">
+        <!-- <div class="round"> -->
+            <input type="checkbox" name="checkbox" value="<%= element._id %>" onchange="this.form.submit()" id="checkbox">
+            <label for="checkbox"></label>
+        <!-- </div> -->
+        <p><%= element.item %></p>
+        <br>
+    </div>
+</form>
+<% }); %>
+<form class="item" action="/submit" method="post" >
+    <input type="text" name="n"  placeholder="new"><hr>
+    <button id="b" type="submit" <span id="s2"></span>+</span></button> 
+</form>
+</div>
+</div> 
+
+<footer class="footer">
+    <p>Copyright © <%= new Date().getFullYear()  %></p>
+  </footer>  
+</body>
+</html>
